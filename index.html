@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEH Portfolio</title>
+    <style>
+        /* CSS reset */
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            color: inherit;
+            text-decoration: none
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        img{
+            width: 100%;
+        }
+        
+
+        /* 폰트 */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        :root{
+            scroll-behavior: smooth;
+            width: 100%;
+            font-family: 'Montserrat', 'Noto Sans KR', sans-serif;;
+            font-weight: 400;
+            font-size: 14px;
+            color: #eee;
+            line-height: 1em;
+        }
+        .container{
+            width: 100%;
+            max-width: 1960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h2{
+            font-weight: 500;
+            font-size: 2em;
+        }
+      
+        /* 스킵메뉴 */
+        .skip-menu a{
+            position: fixed;
+            left: 50%;
+            top: 0;
+            z-index: 9999;
+            transform: translate(-50%,-200%);
+            border: 2px solid #333;
+            padding: 6px 10px;
+            font-size: 1.5em;
+            color: #333;
+            background-color: #fff;
+        }
+        .skip-menu a:focus{
+            transform: translate(-50%,0);
+        }
+
+        /* 팝업 */
+        .popup-cookie{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 9998;
+        }
+        .popup-cookie.dis-none{
+            display: none;
+        }
+        .popup-cookie .in{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+
+            width:90%;
+            max-width:480px;
+            border:1px solid #333;
+            padding:1em;
+            border-radius:1em;
+            background-color:#fff;
+            box-shadow:10px 10px 10px rgba(0,0,0,0.5);
+
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+        }
+        .popup-cookie .in .img-box,
+        .popup-cookie .in h2,
+        .popup-cookie .in p{
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        /* HEADER */
+        .header{
+            padding: 20px 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            background-color: transparent;
+            transition: 0.3s;
+        }
+        .header.lock{
+            background-color: #333;
+        }    
+        .header .in{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1{
+            border: 3px solid #eee;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 2em;
+            text-transform: uppercase;
+        }
+        .btn-nav{
+            position: relative;
+            z-index: 9997;
+            border: 2px solid #eee;
+            padding: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-nav::before{
+            box-sizing: border-box;
+            content: '';
+            display: block;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            border: 2px solid #eee;
+            padding: 6px;
+            border-radius: 4px;
+        }
+        .btn-nav .line{
+            width: 20px;
+            height: 2px;
+            background-color: #eee;
+            margin-bottom: 5px;
+            text-indent: -999999px;       
+        }
+        .btn-nav .line:last-child{
+            margin-bottom: 0;
+        }
+        #main-nav{
+            position: fixed;
+            left: 100%;
+            right: -100%;
+            top: 0;
+            bottom: 0;
+            z-index: 9996;
+            background-color: #333;
+            transition: 0.3s;
+
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        #main-nav.active{
+            left: 0;
+            right: 0;
+        }
+        #main-nav li{
+            margin:0.8em;
+            border-bottom:1px solid transparent; 
+            padding:12px;
+            font-weight:600;
+            font-size:2em;
+            text-transform:uppercase;
+            position:relative;
+            transition:border 0.3s;
+        }
+        #main-nav li:hover{
+            border-bottom-color:#fff;
+        }
+        #main-nav li a{
+            position:relative;
+            z-index:100;
+        }                   
+        #main-nav li::before{
+            content:attr(data-after);
+            display:block;            
+        
+            position:absolute;           
+            top:50%;
+            z-index:99;
+            transform:translateY(-50%) scale(1);
+            opacity:1;
+        }
+        #main-nav li:hover::before{
+            animation-name:nav-ani01;  
+            animation-duration:0.3s;
+        }
+
+        @keyframes nav-ani{
+            0%{
+                transform:translateY(-50%) scale(1);
+                opacity:1; 
+                display:none;           
+            }
+            1%{
+                display:block;
+            }
+            99%{
+                transform:translateY(-50%) scale(20);
+                opacity:0;
+            }
+            100%{
+                display:none;
+            }
+        }
+
+
+
+        .sec{
+            height: 100vh;
+            padding-top: 140px;
+            background-color: #666;
+        }
+
+        @media (min-width:1200px){
+            .btn-nav{
+                display: none;
+            }
+            #main-nav{
+                position: static;
+                background-color: transparent;
+                flex-direction: row;
+            }
+            #main-nav li{ 
+                font-weight: 500;
+                font-size: 1.5em;
+            }
+            #main-nav li:hover{
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 스킵메뉴 -->
+    <section class="skip-menu">
+        <a href="#home">home</a>
+        <a href="#about">about us</a>
+        <a href="#skills">my skills</a>
+        <a href="#projects">projects</a>
+        <a href="#contact">contact me</a>
+    </section>
+    <!-- 팝업 -->
+    <section class="popup-cookie dis-none" id="popup-cookie">
+        <div class="in">
+            <div class="img-box">
+                <img src="./images/popup.jpg" alt="팝업이미지">
+            </div>
+            <h2>좋은 시간 보내세요</h2>
+            <p>결과에 만족하셨거나 의문사항이 있다면 연락바랍니다.</p>
+            <label>
+                <input type="checkbox" id="chk01">24시간 열지않음
+            </label>
+            <button type="button" id="btn-popup">닫기</button>
+        </div>
+    </section>
+
+    <section class="wrapper">
+        <header class="header" id="home">
+            <div class="container">
+                <div class="in">
+                    <h1><a href="./index.html" title="클릭하면 시작페이지로 이동">heo eunhye</a></h1>
+                    <nav>
+                        <div class="btn-nav" id="tgl-nav" title="클릭하면 네비보임">
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                            <div class="line">라인</div>
+                        </div>
+                        <ul id="main-nav">
+                            <li data-after="home"><a href="#home">home</a></li>
+                            <li data-after="about us"><a href="#about">about us</a></li>
+                            <li data-after="my skills"><a href="#skills">my skills</a></li>
+                            <li data-after="projects"><a href="#projects">projects</a></li>
+                            <li data-after="contact me"><a href="#contact">contact me</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <section class="sec about-me" id="about">
+            <div class="container">
+                <h2>about us</h2>
+            </div>
+        </section>
+        
+        <section class="sec my-skills" id="skills">
+            <div class="container">
+                <h2>skills</h2>
+            </div>
+        </section>
+
+        <section class="sec projects" id="projects">
+            <div class="container">
+                <h2>projects</h2>
+            </div>
+        </section>
+
+        <section class="sec contact" id="contact">
+            <div class="container">
+                <h2>contact me</h2>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <h2>footer</h2>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        // 전역변수
+        let popupEl = document.getElementById('popup-cookie');
+        let chk01 = document.getElementById('chk01');
+        let btnPopup = document.getElementById('btn-popup');
+        let tglNav = document.getElementById('tgl-nav');
+        let mainNavEl = document.getElementById('main-nav');
+        let navEls = document.querySelectorAll('#main-nav a');
+        let headerEl = document.getElementById('home');
+
+
+        // 팝업닫기 이벤트
+        btnPopup.addEventListener('click',()=>{
+            popupEl.classList.add('dis-none');
+            if(chk01.checked){
+                setCookie('mainPopup','hidden',1);
+            }
+        });
+        // 팝업실행여부
+        popup();
+        // 네비게이션 토글 이벤트
+        tglNav.addEventListener('click',()=>{
+            showNav(mainNavEl);
+        })
+        // 문서에서 특정 타켓으로 이동
+        for(let idx=0; idx<navEls.length; idx++){
+            navEls[idx].addEventListener('click',()=>{
+                showNav(mainNavEl);
+            })
+        }
+        // window scroll 이벤트
+        window.addEventListener('scroll',()=>{
+            let scrTop = window.scrollY;
+            bgChange(scrTop,headerEl);
+        })
+       
+
+
+        // FUNCTION
+        // 팝업 보이기/감추기 함수
+        function popup(){
+            if(getCookie('mainPopup')!=='hidden'){
+                popupEl.classList.remove('dis-none');
+            }
+        }
+        // set 쿠키만들기 함수
+        function setCookie(name,value,expir){
+            let date = new Date();
+            date.setDate(date.getDate() + expir);
+            document.cookie = name + '=' + value + ';expires=' + date +';path=/;';
+        }
+        // get 쿠키만들기 함수
+        function getCookie(name) { 
+            let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return value? value[2] : null;
+        }
+        // nav(target) 토글 함수
+        function showNav(target){
+            target.classList.toggle('active');
+        }
+        // 배경 변경 함수
+        function bgChange(scrWidth,target){
+            if(scrWidth > 0){
+                target.classList.add('lock');
+            }else{
+                target.classList.remove('lock');
+            }
+        }
+ 
+    </script>
+</body>
+</html>
