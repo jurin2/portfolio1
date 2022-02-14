@@ -233,8 +233,25 @@
         .sec{
             height: 100vh;
             padding-top: 140px;
-            background-color: #666;
         }
+        .intro{
+            position: relative;
+        }
+        .intro::before{
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: url(./images/bg-intro.jpg) no-repeat center;
+            background-size: cover;
+            filter: brightness(50px);
+        }
+
+
+
 
         @media (min-width:1200px){
             .btn-nav{
@@ -291,7 +308,7 @@
                             <div class="line">라인</div>
                         </div>
                         <ul id="main-nav">
-                            <li data-after="home"><a href="#home">home</a></li>
+                            <li data-after="home"><a href="#intro">home</a></li>
                             <li data-after="about us"><a href="#about">about us</a></li>
                             <li data-after="my skills"><a href="#skills">my skills</a></li>
                             <li data-after="projects"><a href="#projects">projects</a></li>
@@ -302,6 +319,12 @@
             </div>
         </header>
         
+        <section class="sec intro" id="intro">
+            <div class="container">
+                <h2>intro</h2>
+            </div>
+        </section>
+
         <section class="sec about-me" id="about">
             <div class="container">
                 <h2>about us</h2>
