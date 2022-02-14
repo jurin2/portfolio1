@@ -32,8 +32,12 @@
             font-family: 'Montserrat', 'Noto Sans KR', sans-serif;;
             font-weight: 400;
             font-size: 14px;
-            color: #eee;
+            color: #fff;
             line-height: 1em;
+        }
+        .sec{
+            height: 100vh;
+            padding-top: 140px;
         }
         .container{
             width: 100%;
@@ -44,6 +48,7 @@
         h2{
             font-weight: 500;
             font-size: 2em;
+            text-transform:uppercase;
         }
       
         /* 스킵메뉴 */
@@ -111,7 +116,7 @@
             transition: 0.3s;
         }
         .header.lock{
-            background-color: #333;
+            background-color: #222;
         }    
         .header .in{
             display: flex;
@@ -129,6 +134,7 @@
         .btn-nav{
             position: relative;
             z-index: 9997;
+
             border: 2px solid #eee;
             padding: 6px;
             border-radius: 4px;
@@ -145,9 +151,10 @@
             top: 0;
             bottom: 0;
 
-            border: 2px solid #eee;
-            padding: 6px;
-            border-radius: 4px;
+            border:2px solid #fff; 
+            animation-name:btn-nav-ani;
+            animation-duration:1s;           
+            animation-iteration-count:infinite;
         }
         .btn-nav .line{
             width: 20px;
@@ -155,6 +162,12 @@
             background-color: #eee;
             margin-bottom: 5px;
             text-indent: -999999px;       
+        }
+        .btn-nav.close .line{
+            visibility:hidden;            
+        }
+        .btn-nav.close .line:nth-child(2){
+            visibility:visible;            
         }
         .btn-nav .line:last-child{
             margin-bottom: 0;
@@ -166,7 +179,7 @@
             top: 0;
             bottom: 0;
             z-index: 9996;
-            background-color: #333;
+            background-color: #222;
             transition: 0.3s;
 
             display: flex;
@@ -210,7 +223,7 @@
             animation-duration:0.3s;
         }
 
-        @keyframes nav-ani{
+        @keyframes nav-ani01{
             0%{
                 transform:translateY(-50%) scale(1);
                 opacity:1; 
@@ -226,18 +239,34 @@
             100%{
                 display:none;
             }
+            
+        }
+        @keyframes btn-nav-ani {
+            0%{
+                opacity:0;
+                transform:scale(1.2);
+            }
+            10%{
+                opacity:0;
+                transform:scale(1.2);
+            }
+            11%{
+                opacity:1;
+                transform:scale(1.2);
+            }
+            100%{
+                opacity:0;
+                transform:scale(1.7);
+            }
         }
 
 
 
-        .sec{
-            height: 100vh;
-            padding-top: 140px;
-        }
+        
         .intro{
             position: relative;
         }
-        .intro::before{
+        /* .intro::before{
             content: '';
             display: block;
             position: absolute;
@@ -245,10 +274,11 @@
             right: 0;
             top: 0;
             bottom: 0;
+
             background: url(./images/bg-intro.jpg) no-repeat center;
             background-size: cover;
             filter: brightness(50px);
-        }
+        } */
 
 
 
@@ -263,11 +293,13 @@
                 flex-direction: row;
             }
             #main-nav li{ 
+                margin-top:0;
+                margin-bottom:0;        
                 font-weight: 500;
                 font-size: 1.5em;
             }
-            #main-nav li:hover{
-                transform: scale(1.2);
+            #main-nav li:hover::before{
+                animation-name:none;
             }
         }
     </style>
@@ -379,6 +411,7 @@
         // 네비게이션 토글 이벤트
         tglNav.addEventListener('click',()=>{
             showNav(mainNavEl);
+            tglNav.classList.toggle('close');
         })
         // 문서에서 특정 타켓으로 이동
         for(let idx=0; idx<navEls.length; idx++){
