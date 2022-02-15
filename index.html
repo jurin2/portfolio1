@@ -515,11 +515,21 @@
             gap: 20px;
             text-align: center;
             box-shadow: 0 0 0 #fff;
-            transition: 0.3s;
         }
         .skills-bottom li:hover{
-            box-shadow: 0 0 10px #fff;
+            /* box-shadow: 0 0 10px #fff; */
+            animation: skills-ani 0.5s ease infinite alternate;
         }
+
+        @keyframes skills-ani{
+            0%{
+                box-shadow: 0 0 0 #fff;
+            }
+            100%{
+                box-shadow: 0 0 10px #fff;
+            }
+        }
+
         .skills-bottom li h3{
             order: 2;
         }
