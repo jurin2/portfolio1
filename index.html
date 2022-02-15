@@ -4,82 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEH Portfolio</title>
+    <title>CHO Portfolio</title>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        /* CSS reset */
+        /* CSS Reset */
         *{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
         }
         a{
-            color: inherit;
-            text-decoration: none
+            color:inherit;
+            text-decoration:none;
         }
         ul,ol,li{
-            list-style: none;
+            list-style:none;
         }
         img{
-            width: 100%;
+            width:100%;
         }
-        
 
         /* 공통스타일 */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
         :root{
-            scroll-behavior: smooth;
-            width: 100%;
-            font-family: 'Montserrat', 'Noto Sans KR', sans-serif;;
-            font-weight: 400;
-            font-size: 14px;
-            color: #fff;
-            line-height: 1em;
+            scroll-behavior:smooth;
+            width:100%;            
+            font-family:'Montserrat','Noto Sans KR',sans-serif;
+            font-weight:400;
+            font-size:14px;
+            color:#fff;
+            line-height:1;
         }
-        .sec{
-            height: 100vh;
-            padding-top: 140px;
+        .sec{            
+            padding:140px 0 90px;            
         }
         .container{
-            width: 100%;
-            max-width: 1960px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width:100%;
+            max-width:1960px;
+            margin:0 auto;
+            padding:0 20px;
         }
         h2{
-            font-weight: 500;
-            font-size: 2em;
+            font-weight:500;
+            font-size:2em;
             text-transform:uppercase;
         }
-      
-        /* 스킵메뉴 */
+
+
+        /* 스킵메뉴 스타일 */
         .skip-menu a{
-            position: fixed;
-            left: 50%;
-            top: 0;
-            z-index: 9999;
-            transform: translate(-50%,-200%);
-            border: 2px solid #333;
-            padding: 6px 10px;
-            font-size: 1.5em;
-            color: #333;
-            background-color: #fff;
+            position:fixed;
+            left:50%;
+            top:0;
+            z-index:9999;
+            transform:translate(-50%,-200%);
+            border:2px solid #333;
+            padding:6px 10px;
+            background-color:#fff;
+            font-size:1.5em;
+            color:#333;            
         }
         .skip-menu a:focus{
-            transform: translate(-50%,0);
+            transform:translate(-50%,0);
         }
-
-        /* 팝업 */
         .popup-cookie{
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            z-index: 9998;
-            color: #222;
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            z-index:9998;
         }
         .popup-cookie.dis-none{
-            display: none;
+            display:none;
         }
         .popup-cookie .in{
             position:absolute;
@@ -102,68 +102,70 @@
         .popup-cookie .in .img-box,
         .popup-cookie .in h2,
         .popup-cookie .in p{
-            width: 100%;
-            margin-bottom: 1em;
+            width:100%;
+            margin-bottom:1em;
         }
+
 
         /* HEADER */
         .header{
-            padding: 20px 0;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            z-index: 2;
-            background-color: transparent;
-            transition: 0.3s;
+            padding:20px 0;
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            z-index:2;
+            background-color:transparent;
+            transition:0.3s;
         }
         .header.lock{
-            background-color: #222;
-        }    
-        .header .in{
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            align-items: center;
+            background-color:#222;
         }
-        .header h1{
-            border: 3px solid #eee;
-            padding: 15px;
-            font-weight: 600;
-            font-size: 1.6em;
-            text-transform: uppercase;
+        .header .in{
+            display:flex;
+            flex-flow:row nowrap;
+            justify-content: space-between;
+            align-items:center;
+        }
+        h1{
+            border:3px solid #eee;
+            padding:12px;
+
+            font-weight:600;
+            font-size:1.6em;
+            text-transform:uppercase;
         }
         .btn-nav{
-            position: relative;
-            z-index: 9997;
+            position:relative;
+            z-index:9997;
 
-            border: 2px solid #eee;
-            padding: 6px;
-            border-radius: 4px;
-            cursor: pointer;
+            border:2px solid #eee;
+            padding:6px;
+            border-radius:4px; 
+            cursor:pointer;           
         }
         .btn-nav::before{
-            box-sizing: border-box;
-            content: '';
-            display: block;
+            box-sizing:border;
+            content:'';
+            display:block;
 
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+ 
             border:2px solid #fff; 
             animation-name:btn-nav-ani;
             animation-duration:1s;           
             animation-iteration-count:infinite;
         }
         .btn-nav .line{
-            width: 20px;
-            height: 2px;
-            background-color: #eee;
-            margin-bottom: 5px;
-            text-indent: -999999px;       
+            width:20px;
+            height:2px;
+            margin-bottom:5px;
+            background-color:#eee;
+            text-indent:-99999px;
         }
         .btn-nav.close .line{
             visibility:hidden;            
@@ -172,26 +174,26 @@
             visibility:visible;            
         }
         .btn-nav .line:last-child{
-            margin-bottom: 0;
+            margin-bottom:0;
         }
-        #main-nav{
-            position: fixed;
-            left: 100%;
-            right: -100%;
-            top: 0;
-            bottom: 0;
-            z-index: 9996;
-            background-color: #222;
-            transition: 0.3s;
+        #main-nav{            
+            position:fixed;
+            left:100%;
+            right:-100%;
+            top:0;
+            bottom:0;
+            z-index:9996;
+            background-color:#222;
+            transition:0.3s;
 
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-            align-items: center;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:center;
+            align-items:center;
         }
         #main-nav.active{
-            left: 0;
-            right: 0;
+            left:0;
+            right:0;
         }
         #main-nav li{
             margin:0.8em;
@@ -202,7 +204,7 @@
             text-transform:uppercase;
             position:relative;
             transition:border 0.3s;
-        }
+        }     
         #main-nav li:hover{
             border-bottom-color:#fff;
         }
@@ -262,15 +264,17 @@
             }
         }
 
+
         /* INTRO */
         .intro{
             position: relative;
             z-index:1;
+            height:100vh;
             background-image:url(./images/bg-intro.jpg);
             background-repeat:no-repeat;
             background-position:center;
             background-size:cover;
-            background-attachment: fixed;
+            background-attachment:fixed;
         }
         .intro::before{
             content:'';
@@ -294,10 +298,7 @@
         }
         .intro h2{
             display:none;
-        }
-        .intro-left{
-            padding-bottom:90px;
-        }
+        }        
         .intro-left p{
             line-height:2;
             position:relative;
@@ -344,6 +345,7 @@
         .intro-left p:last-child:hover{
             background-color:rgba(0,0,0,1);
         }
+
 
         /* .intro-left p::after{
             content:'';
@@ -403,39 +405,187 @@
             font-size:100px;
             opacity: 1;           
         }
-       
-       
-
-        
 
 
+        /* ABOUT */
+        .about{
+            background-image:linear-gradient(90deg,rgba(0,0,0,0.85),rgba(0,0,0,0.9))
+        }
+        .about h2{
+            display:none;
+        }
+        .about .in{
+           display:grid;
+           grid-template-columns:repeat(2,1fr);
+           row-gap:50px;
+        }
+        .about-img,.about-txt{
+            grid-column: 1/3;
+        }
+        .about-img{
+            overflow:hidden;
+        }
+        .about-img img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        .about-txt{
+            text-align:center;
+        }
+        .about-txt h3{
+            margin-bottom:1em;
+            font-weight:500;
+            font-size:2em;
+            text-transform:uppercase;
+        }
+        .about-txt div{
+            margin-bottom:2em;
+        }
+        .about-txt .txt04{
+            margin-bottom: 0;
+        }
+        .about-txt h4{
+            margin-bottom:0.5em;
+            font-size:1.2em;            
+        }
+        .about-txt h4::before{
+            content:'';
+            display:inline-block;
+            width:10px;
+            height:7px;
+            margin:0 11px 4px 0;
+            border:3px solid #fff;
+            border-top:none;
+            border-right:none;
+            transform:rotate(-45deg);         
+        }
+        .about-txt p{
+            font-weight:300;
+            line-height:1.2;
+        }
+
+        /* SKILLS */
+        .skills{
+            background-image: url(./images/bg-intro2.jpg);
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size:cover;
+            background-attachment:fixed;
+            text-shadow: 1px 1px 1px #333;
+        }
+        .skills h2{
+            display: none;
+        }
+        .skills .in{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .skills .skills-top{
+            margin-bottom:100px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .skills-top h3{
+            margin-bottom: 1em;
+            font-weight: 500;
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .skills-top p{
+            line-height: 1.2;
+            text-align: center;
+        }
+        .skills-top p:first-of-type{
+            display:none;
+        }
+        .skills-bottom ul{
+            display: grid;
+            gap: 40px;
+        }
+        .skills-bottom li{
+            border: 2px solid rgba(255,255,255,0.5);
+            padding: 30px;
+            display: grid;
+            gap: 20px;
+            text-align: center;
+            box-shadow: 0 0 0 #fff;
+            transition: 0.3s;
+        }
+        .skills-bottom li:hover{
+            box-shadow: 0 0 10px #fff;
+        }
+        .skills-bottom li h3{
+            order: 2;
+        }
+        .skills-bottom li .img-box{
+            order: 1;
+            width: 50%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        .skills-bottom li p{
+            order: 3;
+        }
+        .skills-bottom svg{
+            fill: #fff;
+        }
 
 
 
         @media (min-width:560px){
-            .header h1{
-                padding: 15px;
-                font-size: 2em;
+            h1{
+                padding:15px;
+                font-size:2em;
+            }
+            .skills-bottom ul{
+                grid-template-columns: auto auto;
             }
         }
-
 
         @media (min-width:940px){
-            .header .in::before{
-              content: '';
-              display: block;
-              width: 36px;
-
+            .container{
+                padding:0 60px;
             }
-        }
-
+            .header .in::before{
+                content:'';
+                display:block;
+                width:36px;
+            }
+            .about .in{
+                flex-direction:row;
+            }
+            .skills .in{
+                align-items: stretch;
+            }
+            .skills .skills-top{
+                flex-direction: row;
+            }
+            .skills-top h3{
+                margin-bottom: 0;
+                flex: 1;
+            }
+            .skills-top p:first-of-type{
+                display: block;
+                flex: 1;
+                text-align: left;
+            }
+            .skills-top p:last-of-type{
+                display: none;
+            }
+            .skills-bottom ul{
+                grid-template-columns: auto auto auto;
+            }
+        }  
 
         @media (min-width:1200px){
-            .container{
-                padding: 0 120px;
-            }
             .header .in::before{
-                display: none;
+                display:none;
             }
             .btn-nav{
                 display:none;
@@ -443,7 +593,6 @@
             #main-nav{
                 position:static;
                 background-color:transparent;
-
                 flex-direction:row;
             }
             #main-nav li {       
@@ -452,11 +601,9 @@
                 font-weight: 500;
                 font-size: 1.5em;
             }           
-            
             #main-nav li:hover::before{
                 animation-name:none;
             }
-
             .intro .container{
                 justify-content: space-between;
             }
@@ -472,7 +619,9 @@
             .intro-right p:first-child{
                 animation:intro-right01 0.5s 0.3s ease forwards;
             }
-
+            .intro-right p:last-child{
+                animation:intro-right02 0.5s 2.75s ease forwards ;
+            }
             @keyframes intro-right01 {
                 0%{
                     font-size:0;
@@ -482,10 +631,7 @@
                     font-size:300px;
                     opacity:1;
                 }
-            }
-            .intro-right p:last-child{
-                animation:intro-right02 0.5s 2.75s ease forwards ;
-            }
+            }         
             @keyframes intro-right02 {
                 0%{
                     right:9999px;
@@ -497,6 +643,41 @@
                 }
             }
 
+            /* ABOUT */
+            .about-img{
+                grid-column:1/2;
+            }
+            .about-txt{
+                grid-column:2/3;
+                padding:30px 50px;
+                text-align:left;
+                background-image:url(./images/bg-about.jpg);
+                background-repeat:no-repeat;
+                background-position:center;
+                background-size:cover;
+                background-attachment:fixed;
+            }
+
+            /* SKILLS */        
+            .skills-left h3{
+                margin-bottom: 30px;
+                align-self: flex-start;
+            }
+            .skills .skills-right{
+                flex: 1;
+            }
+            .skills-bottom ul{
+                grid-template-columns: repeat(6,1fr);
+            }
+            .skills-bottom li{
+                padding:16px;
+            }
+        }
+
+        @media (min-width:1440px){
+            .container{
+                padding:0 120px;
+            }
         }
     </style>
 </head>
@@ -509,17 +690,15 @@
         <a href="#projects">projects</a>
         <a href="#contact">contact me</a>
     </section>
-    <!-- 팝업 -->
+    <!-- 팝업  -->
     <section class="popup-cookie dis-none" id="popup-cookie">
         <div class="in">
             <div class="img-box">
                 <img src="./images/popup.jpg" alt="팝업이미지">
             </div>
             <h2>좋은 시간 보내세요</h2>
-            <p>결과에 만족하셨거나 의문사항이 있다면 연락바랍니다.</p>
-            <label>
-                <input type="checkbox" id="chk01">24시간 열지않음
-            </label>
+            <p>결과에 만족하셨거나 의문사항이 있으면 연락바랍니다.</p>
+            <label><input type="checkbox" id="chk01">24시간 열지않음</label>
             <button type="button" id="btn-popup">닫기</button>
         </div>
     </section>
@@ -530,7 +709,7 @@
                 <div class="in">
                     <h1><a href="./index.html" title="클릭하면 시작페이지로 이동">heo eunhye</a></h1>
                     <nav>
-                        <div class="btn-nav" id="tgl-nav" title="클릭하면 네비보임">
+                        <div class="btn-nav" id="tlg-nav" title="클릭하면 내비보임">
                             <div class="line">라인</div>
                             <div class="line">라인</div>
                             <div class="line">라인</div>
@@ -546,18 +725,15 @@
                 </div>
             </div>
         </header>
-        
         <section class="sec intro" id="intro">
             <div class="container">
                 <h2>intro</h2>
                 <div class="intro-left">
-                    <p>안녕하세요!</p>
-                    <p>성실과 열정으로 준비된 십입</p>
-                    <p>웹 퍼블리셔 & 프론트엔드 개발자</p>
+                    <p>안녕하세요!</p>  
+                    <p>성실과 열정으로 준비된 신입</p>
+                    <p>웹 퍼블시셔 & 프론트엔드 개발자</p>
                     <p>허은혜입니다.</p>
-                    <p>
-                        <a href="#projects">포트폴리오 바로가기</a>
-                    </p>          
+                    <p><a href="#projects">포트폴리오 바로가기</a></p>
                 </div>
                 <div class="intro-right">
                     <p>port</p>
@@ -565,55 +741,121 @@
                 </div>
             </div>
         </section>
-
-        <section class="sec about-me" id="about">
+        <section class="sec about" id="about">
             <div class="container">
-                <h2>about us</h2>
+                <h2>about me</h2>
                 <div class="in">
                     <div class="about-img img-box">
-                        <img src="./images/bg-about.jpg" alt="about me">
+                        <img src="./images/img-about.jpg" alt="about me">
                     </div>
                     <div class="about-txt">
                         <h3>about me</h3>
-                        <div class="txt01">
+                        <div class="txt01" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
                             <h4>자기개발을 하는 사람</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, dolore.</p>
-                        </div>   
-                        <div class="txt02">
-                            <h4>삶의 가치를 아는 사람</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid.</p>
-                        </div>   
-                        <div class="txt03">
-                            <h4>약속의 중요성을 아는 사람</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid.</p>    
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, mollitia?</p>
                         </div>
-                        <div class="txt04">
-                            <h4>아는 것이 아닌 할 수 있는 사람</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, aliquid.</p>
+                        <div class="txt02" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                            <h4>삶의 가치를 아는 사람</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam quibusdam dolorem.</p>
+                        </div>
+                        <div class="txt03" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                            <h4>약속의 중요성을 아는 사람</h4>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, expedita obcaecati.</p>
+                        </div>
+                        <div class="txt04" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
+                            <h4>아는것이 아닌 할수 있는 사람</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <section class="sec my-skills" id="skills">
+        <section class="sec skills" id="skills">
             <div class="container">
                 <h2>skills</h2>
+                <div class="in">
+                    <div class="skills-top skills-left">
+                        <h3>i can do</h3>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui ex, inventore quas quos quod assumenda.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur obcaecati atque natus. Ea quibusdam rem illum doloremque vel.
+                        </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    </div>
+                    <div class="skills-bottom skills-right">
+                        <ul>
+                            <li>
+                                <h3>html5</h3>
+                                <div class="img-box">                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/>
+                                    </svg>
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident animi enim nam, ratione quas eveniet nisi voluptates ab ipsa magnam est soluta saepe similique. Libero quibusdam consectetur ipsam exercitationem earum.</p>
+                            </li>
+                            <li>
+                                <h3>css3</h3>
+                                <div class="img-box">                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 80l-4.8 47.3L193 208.6l-.3.1h111.5l-12.8 146.6-98.2 28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 3.7-61.6-166.3-.5v-.1l-.2.1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 112h242.2z"/>                                    </svg>
+                                    </svg>  
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident animi enim nam, ratione quas eveniet nisi voluptates ab ipsa magnam est soluta saepe similique. Libero quibusdam consectetur ipsam exercitationem earum.</p>
+                            </li>
+                            <li>
+                                <h3>javascript</h3>
+                                <div class="img-box">                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/>
+                                    </svg>                                
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident animi enim nam, ratione quas eveniet nisi voluptates ab ipsa magnam est soluta saepe similique. Libero quibusdam consectetur ipsam exercitationem earum.</p>
+                            </li>
+                            <li>
+                                <h3>jquery</h3>
+                                <div class="img-box">                                
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 66 64" fill="#fff" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+                                        <use xlink:href="#A" x="1" y="1"/><symbol id="A" overflow="visible">
+                                        <path d="M4.062 14.47c-5.66 8.14-4.96 18.728-.632 27.4.1.208.21.412.316.616l.2.39c.04.076.084.15.126.224.074.14.15.268.226.404l.414.708.236.388.48.75.204.316.694 1 .136.184a32.66 32.66 0 0 0 .632.84l.24.304.584.72.224.268c.266.314.54.626.814.93.028.03.04.04.048.052l.828.872.266.268.66.648.27.26a34.11 34.11 0 0 0 .906.824l.992.84.34.272.686.536.366.28.77.552.36.254c.246.17.496.332.748.494l.324.216a41.46 41.46 0 0 0 1.17.716l.324.2.88.492c.16.086.324.168.486.25l.628.326.146.07.26.124.996.46.21.094c.385.167.772.328 1.162.482l.28.112 1.096.406.14.048a43.45 43.45 0 0 0 1.22.4l.296.088c.4.126.832.28 1.26.356 27.388 4.994 35.34-16.46 35.34-16.46-6.68 8.704-18.54 11-29.8 8.444-.426-.096-.84-.228-1.254-.352l-.312-.094c-.405-.124-.808-.256-1.208-.394l-.166-.06-1.064-.394-.3-.12a30.23 30.23 0 0 1-1.15-.48l-.23-.1-.97-.452-.28-.134c-.252-.12-.5-.254-.75-.4l-.5-.26c-.304-.16-.6-.332-.9-.504l-.304-.17c-.394-.232-.784-.471-1.17-.716-.106-.068-.21-.14-.316-.21l-.832-.554c-.092-.06-.2-.128-.268-.188l-.788-.57-.35-.264-.71-.556-.316-.254-.884-.746c-.032-.028-.066-.055-.1-.08l-.93-.846-.26-.252-.664-.66-.26-.26a16.05 16.05 0 0 1-.8-.868c-.014-.014-.028-.028-.04-.044-.283-.311-.561-.627-.832-.948l-.2-.26-.6-.74-.2-.274-.692-.92c-6.276-8.504-8.52-20.26-3.532-29.9m13.16-1.25c-4.096 5.894-3.874 13.8-.68 20.016.535 1.048 1.141 2.058 1.812 3.024.614.88 1.294 1.926 2.108 2.632.296.326.604.64.92.954l.24.24c.306.298.619.589.938.872.014.01.024.024.04.034.364.32.732.6 1.106.916l.248.194c.375.289.758.569 1.148.838l.034.024c.172.12.348.23.524.346.084.054.164.112.248.164a23.2 23.2 0 0 0 .85.52l.12.07.752.4c.088.05.2.092.268.14l.526.272c.026.014.054.024.08.036.361.18.726.35 1.096.51l.24.1a28.34 28.34 0 0 0 .9.364l.384.14.826.286.374.12c.394.12.8.28 1.194.346 21.146 3.504 26.028-12.8 26.028-12.8-4.4 6.34-12.92 9.36-22.016 7-.402-.106-.801-.221-1.198-.346-.12-.036-.24-.076-.36-.116l-.84-.288-.4-.14c-.302-.117-.602-.238-.9-.364l-.244-.1a25.14 25.14 0 0 1-1.104-.512l-.554-.28-.32-.164c-.235-.128-.469-.259-.7-.394l-.168-.094c-.286-.168-.569-.341-.848-.52-.086-.054-.17-.114-.256-.17l-.55-.364c-.387-.268-.768-.547-1.14-.836l-.26-.2c-4-3.144-7.136-7.44-8.636-12.308-1.572-5.05-1.234-10.72 1.49-15.32m11.464-.366c-2.412 3.57-2.652 7.966-.976 11.89 1.766 4.166 5.386 7.432 9.612 9l.524.2.232.072.754.2c11.676 2.256 14.84-5.992 15.686-7.206-2.774 3.994-7.436 4.952-13.156 3.564-.452-.11-.948-.274-1.384-.428a16.92 16.92 0 0 1-1.644-.682c-1.017-.489-1.982-1.078-2.882-1.758C38.074 13.46 34.894 6.032 38.234 0" stroke="none" fill-rule="nonzero"/></symbol>
+                                    </svg>
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident animi enim nam, ratione quas eveniet nisi voluptates ab ipsa magnam est soluta saepe similique. Libero quibusdam consectetur ipsam exercitationem earum.</p>
+                            </li>
+                            <li>
+                                <h3>github</h3>
+                                <div class="img-box">                                                      
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                        <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                                    </svg>                               
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident animi enim nam, ratione quas eveniet nisi voluptates ab ipsa magnam est soluta saepe similique. Libero quibusdam consectetur ipsam exercitationem earum.</p>
+                            </li>
+                            <li>
+                                <h3>vs code</h3>
+                                <div class="img-box">                                                      
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                        <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                                    </svg>                               
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident animi enim nam, ratione quas eveniet nisi voluptates ab ipsa magnam est soluta saepe similique. Libero quibusdam consectetur ipsam exercitationem earum.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
         </section>
-
         <section class="sec projects" id="projects">
             <div class="container">
                 <h2>projects</h2>
             </div>
         </section>
-
         <section class="sec contact" id="contact">
             <div class="container">
-                <h2>contact me</h2>
+                <h2>contact</h2>
             </div>
         </section>
-
         <footer class="footer">
             <div class="container">
                 <h2>footer</h2>
@@ -621,16 +863,19 @@
         </footer>
     </section>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init();
+
         // 전역변수
         let popupEl = document.getElementById('popup-cookie');
         let chk01 = document.getElementById('chk01');
         let btnPopup = document.getElementById('btn-popup');
-        let tglNav = document.getElementById('tgl-nav');
+        let tglNav = document.getElementById('tlg-nav');
         let mainNavEl = document.getElementById('main-nav');
         let navEls = document.querySelectorAll('#main-nav a');
         let headerEl = document.getElementById('home');
-
+        
 
         // 팝업닫기 이벤트
         btnPopup.addEventListener('click',()=>{
@@ -639,25 +884,30 @@
                 setCookie('mainPopup','hidden',1);
             }
         });
+
         // 팝업실행여부
         popup();
-        // 네비게이션 토글 이벤트
+        
+        // 내비게이션 토글이벤트
         tglNav.addEventListener('click',()=>{
             showNav(mainNavEl);
             tglNav.classList.toggle('close');
-        })
-        // 문서에서 특정 타켓으로 이동
-        for(let idx=0; idx<navEls.length; idx++){
+        });
+
+        // 문서에서 특정 타겟으로 이동
+        for(let idx=0;idx<navEls.length;idx++){
             navEls[idx].addEventListener('click',()=>{
                 showNav(mainNavEl);
+                tglNav.classList.toggle('close');
             })
         }
+        
         // window scroll 이벤트
         window.addEventListener('scroll',()=>{
             let scrTop = window.scrollY;
             bgChange(scrTop,headerEl);
         })
-       
+
 
 
         // FUNCTION
@@ -667,21 +917,25 @@
                 popupEl.classList.remove('dis-none');
             }
         }
+
         // set 쿠키만들기 함수
         function setCookie(name,value,expir){
             let date = new Date();
             date.setDate(date.getDate() + expir);
             document.cookie = name + '=' + value + ';expires=' + date +';path=/;';
         }
+
         // get 쿠키만들기 함수
         function getCookie(name) { 
             let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
             return value? value[2] : null;
-        }
-        // nav(target) 토글 함수
+        }         
+
+        // target 토글 함수
         function showNav(target){
             target.classList.toggle('active');
-        }
+        }         
+
         // 배경 변경 함수
         function bgChange(scrWidth,target){
             if(scrWidth>0){
@@ -690,7 +944,19 @@
                 target.classList.remove('lock');
             }
         }
- 
+
+        // intro-left 애니메이션
+        // let intLeftEl = document.querySelector('.intro-left');
+        // intLeftEl.style.transform = 'translateY(200px)';
+        // intLeftEl.style.opacity = '0';
+        // intLeftEl.style.transition = '2s'
+        // window.onscroll=function(){
+        //     let winTop = window.scrollY;
+        //     if(winTop>=50){
+        //         intLeftEl.style.transform = 'translateY(0)';
+        //         intLeftEl.style.opacity = '1';
+        //     }
+        // }
     </script>
 </body>
 </html>
