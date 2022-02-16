@@ -25,6 +25,7 @@
         }
         img{
             width:100%;
+            vertical-align: top;
         }
 
         /* 공통스타일 */
@@ -37,6 +38,10 @@
             font-size:14px;
             color:#fff;
             line-height:1;
+        }
+        .wrapper{
+            width: 100%;
+            overflow: hidden;
         }
         .sec{            
             padding:140px 0 90px;            
@@ -517,6 +522,7 @@
             gap: 12px;
             text-align: center;
             box-shadow: 0 0 0 #fff;
+            cursor: pointer;
         }
         .skills-bottom li:hover{
             /* box-shadow: 0 0 10px #fff; */
@@ -601,10 +607,7 @@
         }
         .project-img:hover .img-box{
             filter: grayscale(0.8);
-            transition:0.3s;
-        }
-        .project-img:hover .img-box{
-            transform:scale(1.1);
+            transform:scale(1.1); 
         }
         .project-content{
             order: 1;
