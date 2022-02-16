@@ -43,6 +43,9 @@
             width: 100%;
             overflow: hidden;
         }
+        .wrapper.lock{
+            height: 100vh;
+        }
         .sec{            
             padding:140px 0 90px;            
         }
@@ -134,11 +137,10 @@
             align-items:center;
         }
         h1{
-            border:3px solid #eee;
-            padding:12px;
-
-            font-weight:600;
-            font-size:1.6em;
+            border: 1px solid #eee;
+            padding: 8px;
+            font-weight: 500;
+            font-size: 1em;
             text-transform:uppercase;
         }
         .btn-nav{
@@ -167,8 +169,8 @@
             animation-iteration-count:infinite;
         }
         .btn-nav .line{
-            width:20px;
-            height:2px;
+            width:16px;
+            height:1px;
             margin-bottom:5px;
             background-color:#eee;
             text-indent:-99999px;
@@ -201,8 +203,11 @@
             left:0;
             right:0;
         }
+        #main-nav ul{
+            display:  grid;
+            justify-content: center;
+        }
         #main-nav li{
-            margin:0.8em;
             border-bottom:1px solid transparent; 
             padding:12px;
             font-weight:600;
@@ -650,10 +655,6 @@
 
 
         @media (min-width:560px){
-            h1{
-                padding:15px;
-                font-size:2em;
-            }
             .skills-bottom ul{
                 grid-template-columns: auto auto auto;
             }
@@ -740,6 +741,9 @@
 
         @media (min-width:1200px){
             /* HEADER */
+            .wrapper.lock{
+                height: auto;
+            }
             .header .in::before{
                 display:none;
             }
@@ -875,13 +879,15 @@
                             <div class="line">라인</div>
                             <div class="line">라인</div>
                         </div>
-                        <ul id="main-nav">
-                            <li data-after="home"><a href="#intro">home</a></li>
-                            <li data-after="about us"><a href="#about">about us</a></li>
-                            <li data-after="my skills"><a href="#skills">my skills</a></li>
-                            <li data-after="projects"><a href="#projects">projects</a></li>
-                            <li data-after="contact me"><a href="#contact">contact me</a></li>
-                        </ul>
+                        <div class="main-nav" id="main-nav">
+                            <ul>
+                                <li data-after="home"><a href="#intro">home</a></li>
+                                <li data-after="about us"><a href="#about">about us</a></li>
+                                <li data-after="my skills"><a href="#skills">my skills</a></li>
+                                <li data-after="projects"><a href="#projects">projects</a></li>
+                                <li data-after="contact me"><a href="#contact">contact me</a></li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
             </div>
@@ -1180,6 +1186,7 @@
         let mainNavEl = document.getElementById('main-nav');
         let navEls = document.querySelectorAll('#main-nav a');
         let headerEl = document.getElementById('home');
+        let wrapperEl = document.querySelector('.wrapper');
         
 
         // 팝업닫기 이벤트
@@ -1197,6 +1204,7 @@
         tglNav.addEventListener('click',()=>{
             showNav(mainNavEl);
             tglNav.classList.toggle('close');
+            wrapperEl.classList.toggle('lock');
         });
 
         // 문서에서 특정 타겟으로 이동
