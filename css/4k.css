@@ -1,0 +1,10 @@
+@charset 'utf-8';
+
+@media (min-width:1440px){
+    .container{
+        padding:0 120px;
+    }
+    .skills-bottom ul{
+        grid-template-columns: repeat(6,1fr);
+    }
+}

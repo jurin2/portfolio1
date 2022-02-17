@@ -1,0 +1,125 @@
+@charset 'utf-8';
+
+@media (min-width:1200px){
+    /* 마우스커서 */
+    .mouse-cursor{
+        display: block;
+    }
+    :root{
+        cursor: none;
+    }
+
+    /* HEADER */
+    .wrapper.lock{
+        height: auto;
+    }
+    .header .in::before{
+        display:none;
+    }
+    .btn-nav{
+        display:none;
+    }  
+    .main-nav-container{
+        position:static;
+        background-color:transparent;
+        padding: 0;
+        display: block;
+    }
+    #main-nav{
+        flex-direction: row;
+    }
+    #main-nav li {       
+        margin:0 0 0 2em;       
+        font-weight: 500;
+        font-size: 1.5em;
+    }           
+    #main-nav li:hover::before{
+        animation-name:none;
+    }
+
+    /* INTRO */
+    .intro .container{
+        justify-content: space-between;
+    }
+    .intro-left{
+        align-self:flex-end;
+    }
+    .intro-left p{ 
+        font-size:1.2em;
+    }
+    .intro-right{
+       display:block;
+    }
+    .intro-right p:first-child{
+        animation:intro-right01 0.5s 0.3s ease forwards;
+    }
+    .intro-right p:last-child{
+        animation:intro-right02 0.5s 2.75s ease forwards ;
+    }
+    @keyframes intro-right01 {
+        0%{
+            font-size:0;
+            opacity:0;
+        }
+        100%{
+            font-size:300px;
+            opacity:1;
+        }
+    }         
+    @keyframes intro-right02 {
+        0%{
+            right:9999px;
+            opacity:1;
+        }
+        100%{
+            right:-50px;
+            opacity:0.5;
+        }
+    }
+
+    /* ABOUT */
+    .about-img{
+        grid-column:1/2;
+    }
+    .about-txt{
+        grid-column:2/3;
+        padding:30px 50px;
+        text-align:left;
+        background-image:url(../images/bg-about.jpg);
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+        background-attachment:fixed;
+    }
+
+    /* SKILLS */        
+    .skills-left h3{
+        margin-bottom: 30px;
+        align-self: flex-start;
+    }
+    .skills .skills-right{
+        flex: 1;
+    }
+    .skills-bottom ul{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+    .skills-bottom li{
+        padding:16px;
+    }
+
+    /* CONTACT */
+    .contact{
+        padding-bottom: 50px;
+    }
+
+    /* FOOTER */
+    footer{
+        display: block;
+    }
+
+    /* PAGE-BOTTOM */
+    .page-bottom{
+        display: none;
+    }
+
+}

@@ -1,0 +1,22 @@
+@charset 'utf-8';
+
+@media (min-width:768px){
+    /* PROJECTS */
+    .projects .container{
+        max-width: 940px;
+        padding: 0;
+    }
+    .all-projects ul{
+        gap: 0;
+    }
+    .all-projects ul li{
+        grid-template-columns: 1fr 1fr;
+        border: none;
+    }
+    .all-projects ul li:nth-child(2n) .project-img{
+        order: 1;
+    }
+    .all-projects ul li:nth-child(2n) .project-content{
+        order: 2;
+    }
+}

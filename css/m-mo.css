@@ -1,0 +1,7 @@
+@charset 'utf-8';
+
+@media (min-width:560px){
+    .skills-bottom ul{
+        grid-template-columns: auto auto auto;
+    }
+}
