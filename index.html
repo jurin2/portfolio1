@@ -147,8 +147,8 @@
             position:relative;
             z-index:9997;
 
-            border:2px solid #eee;
-            padding:6px;
+            border:1px solid #eee;
+            padding:5px;
             border-radius:4px; 
             cursor:pointer;           
         }
@@ -184,32 +184,39 @@
         .btn-nav .line:last-child{
             margin-bottom:0;
         }
-        #main-nav{            
+        .main-nav-container{            
             position:fixed;
             left:100%;
             right:-100%;
             top:0;
             bottom:0;
             z-index:9996;
+            padding: 60px 0;
             background-color:#222;
             transition:0.3s;
 
             display:flex;
-            flex-flow:column nowrap;
+            flex-flow:row nowrap;
             justify-content:center;
-            align-items:center;
+            align-items:stretch;
         }
-        #main-nav.active{
+        .main-nav-container.active{
             left:0;
             right:0;
         }
-        #main-nav ul{
-            display:  grid;
-            justify-content: center;
+        #main-nav{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            overflow: auto;
+        }
+        #main-nav::-webkit-scrollbar{
+            display: none;
         }
         #main-nav li{
+            margin: 30px 0;
             border-bottom:1px solid transparent; 
-            padding:12px;
+            padding: 0.5em;
             font-weight:600;
             font-size:2em;
             text-transform:uppercase;
@@ -750,14 +757,17 @@
             .btn-nav{
                 display:none;
             }  
-            #main-nav{
+            .main-nav-container{
                 position:static;
                 background-color:transparent;
-                flex-direction:row;
+                padding: 0;
+                display: block;
+            }
+            #main-nav{
+                flex-direction: row;
             }
             #main-nav li {       
-                margin-top:0;
-                margin-bottom:0;        
+                margin:0 0 0 2em;       
                 font-weight: 500;
                 font-size: 1.5em;
             }           
@@ -879,8 +889,8 @@
                             <div class="line">라인</div>
                             <div class="line">라인</div>
                         </div>
-                        <div class="main-nav" id="main-nav">
-                            <ul>
+                        <div class="main-nav-container">
+                            <ul id="main-nav">
                                 <li data-after="home"><a href="#intro">home</a></li>
                                 <li data-after="about us"><a href="#about">about us</a></li>
                                 <li data-after="my skills"><a href="#skills">my skills</a></li>
@@ -1183,7 +1193,7 @@
         let chk01 = document.getElementById('chk01');
         let btnPopup = document.getElementById('btn-popup');
         let tglNav = document.getElementById('tlg-nav');
-        let mainNavEl = document.getElementById('main-nav');
+        let mainNavEl = document.querySelector('.main-nav-container');
         let navEls = document.querySelectorAll('#main-nav a');
         let headerEl = document.getElementById('home');
         let wrapperEl = document.querySelector('.wrapper');
@@ -1202,16 +1212,13 @@
         
         // 내비게이션 토글이벤트
         tglNav.addEventListener('click',()=>{
-            showNav(mainNavEl);
-            tglNav.classList.toggle('close');
-            wrapperEl.classList.toggle('lock');
+            nav();
         });
 
         // 문서에서 특정 타겟으로 이동
         for(let idx=0;idx<navEls.length;idx++){
             navEls[idx].addEventListener('click',()=>{
-                showNav(mainNavEl);
-                tglNav.classList.toggle('close');
+               nav();
             })
         }
         
@@ -1224,6 +1231,13 @@
 
 
         // FUNCTION
+        // 네비게이션 함수
+        function nav(){
+            showNav(mainNavEl);
+            tglNav.classList.toggle('close');
+            wrapperEl.classList.toggle('lock');
+        }
+
         // 팝업 보이기/감추기 함수
         function popup(){
             if(getCookie('mainPopup')!=='hidden'){
