@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHO Portfolio</title>
+    <title>HEH Portfolio</title>
 
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -44,6 +44,7 @@
 
         /* 공통스타일 */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         :root{
             scroll-behavior:smooth;
             width:100%;            
@@ -52,6 +53,7 @@
             font-size:14px;
             color:#fff;
             line-height:1;
+            cursor:none;
         }
         .wrapper{
             width: 100%;
@@ -498,7 +500,7 @@
         }
 
         /* SKILLS */
-        .skills{
+        .skills,.contact{
             background-image: url(./images/bg-skills.jpg);
             background-repeat:no-repeat;
             background-position:center;
@@ -669,10 +671,50 @@
             background-color: #fff;
             color: #333;
         }
-        /* .btn-doc{
+        
+        /* CONTACT */
+        .contact h2{
+            margin-bottom:50px;
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align:center;         
+        }
+        .contact .in{
+            font-family: 'Playfair Display', serif;
+            font-weight:900;
+            font-style:italic;
+            max-width:500px;
+            margin:0 auto;           
+            display:grid;             
+            gap:40px;
+        }
+        .contact-box{
+            display: grid;
+            gap: 10px;
+            grid-template-rows: 20px auto;
+        }
+        .contact-box h3{
+            opacity: 0.6;
+        }
+        .contact-box p{
+            font-size:1.6em;
+            line-height:1.2; 
+        }
+        
+        /* FOOTER */
+        footer{
+            padding: 40px 0;
+            border-top: 2px solid #fff;
+            background-color: #333;
+        }
+        footer h2{
             display: none;
-        } */
-
+        }
+        address{
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align: center;
+        }
 
 
         @media (min-width:560px){
@@ -757,6 +799,15 @@
             }
             .all-projects ul li:last-child{
                 border: 1px solid rgba(255,255,255,0.5);
+            }
+
+            /* CONTACT */
+            .contact h2{
+                text-align: left;
+            }
+            .contact .in{
+                max-width: 100%;
+                grid-template-columns: repeat(3,1fr);
             }
         }   
 
@@ -1188,12 +1239,27 @@
         </section>
         <section class="sec contact" id="contact">
             <div class="container">
-                <h2>contact</h2>
+                <h2 data-aos="fade-left">contact</h2>
+                <div class="in">
+                    <div class="contact-box phone" data-aos="flip-left">
+                        <h3>Phone</h3>
+                        <p>010-1111-2222</p>
+                    </div>
+                    <div class="contact-box e-mail" data-aos="flip-left">
+                        <h3>E-mail</h3>
+                        <p>kk111@naver.com</p>
+                    </div>
+                    <div class="contact-box address" data-aos="flip-left">
+                        <h3>address</h3>
+                        <p>인천광역시 남동구 000-000</p>
+                    </div>
+                </div>
             </div>
         </section>
         <footer class="footer">
             <div class="container">
                 <h2>footer</h2>
+                <address>COPYRIGHT : HEO</address>
             </div>
         </footer>
     </section>
@@ -1313,10 +1379,7 @@
         // }
 
 
-        let tmp = document.querySelectorAll('.skills li');
-        for(let idx=0; idx<tmp.length; idx++){
 
-        }
     </script>
 </body>
 </html>
