@@ -398,6 +398,7 @@
     <!-- 스크립트 -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/my-object.js"></script>
+    <script src="./js/cookie.js"></script>
     <script>
         AOS.init();
 
@@ -481,20 +482,6 @@
                 popupEl.classList.remove('dis-none');
             }
         }
-
-        // set 쿠키만들기 함수
-        function setCookie(name,value,expir){
-            let date = new Date();
-            date.setDate(date.getDate() + expir);
-            document.cookie = name + '=' + value + ';expires=' + date +';path=/;';
-        }
-
-        // get 쿠키만들기 함수
-        function getCookie(name) { 
-            let value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-            return value? value[2] : null;
-        }         
-
 
         // intro-left 애니메이션
         // let intLeftEl = document.querySelector('.intro-left');
