@@ -28,6 +28,20 @@
             vertical-align: top;
         }
 
+        /* 마우스포인터 */
+        .mouse-cursor{
+            position:fixed;
+            transform:translate(-50%,-50%);
+            z-index:9995;
+
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            background-color:#fff;
+            mix-blend-mode:difference;
+            pointer-events:none;
+        }
+
         /* 공통스타일 */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
         :root{
@@ -200,7 +214,7 @@
             justify-content:center;
             align-items:stretch;
         }
-        .main-nav-container.active{
+        .main-nav-container.lock{
             left:0;
             right:0;
         }
@@ -1183,8 +1197,10 @@
             </div>
         </footer>
     </section>
+    <div class="mouse-cursor" id="msCursor"></div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/my-object.js"></script>
     <script>
         AOS.init();
 
@@ -1192,11 +1208,8 @@
         let popupEl = document.getElementById('popup-cookie');
         let chk01 = document.getElementById('chk01');
         let btnPopup = document.getElementById('btn-popup');
-        let tglNav = document.getElementById('tgl-nav');
-        let mainNavEl = document.querySelector('.main-nav-container');
-        let navEls = document.querySelectorAll('#main-nav a');
-        let headerEl = document.getElementById('home');
-        let wrapperEl = document.querySelector('.wrapper');
+        let tglNav = document.getElementById('tgl-nav');     
+        
         
 
         // 팝업닫기 이벤트
@@ -1207,84 +1220,63 @@
             }
         });
 
-        // 무조건 실행함수
         // 팝업
         popup();
 
         // 네비게이션 show/close
         tglNav.addEventListener('click',function(){
-            let mainNavState = mainNavEl.classList.contains('active');
+            let navEls = document.querySelectorAll('#main-nav a');
+            let mainNavEl = document.querySelector('.main-nav-container');
+            let wrapperEl = document.querySelector('.wrapper');
+            let mainNavState = mainNavEl.classList.contains('lock');
             if(mainNavState){
-                closeNav();
-                unLockWrap();
+                myObj.unLock(mainNavEl);
+                myObj.unLock(wrapperEl);
             }else{
-                showNav();
-                lockWrap();
-                setNav();
+                myObj.lock(mainNavEl);
+                myObj.lock(wrapperEl);
+                myObj.setNav(navEls,wrapperEl,mainNavEl);
             }
         })
 
        // 윈도우 리사이즈 이벤트
        window.addEventListener('resize',function(){
+            let mainNavEl = document.querySelector('.main-nav-container');
+            let wrapperEl = document.querySelector('.wrapper');
             if(window.innerWidth>=1200){
-                closeNav();
-                unLockWrap();
+                myObj.unLock(mainNavEl);
+                myObj.unLock(wrapperEl);
             }
         })
 
         // window scroll 이벤트
         window.addEventListener('scroll',function(){
+            let hEl = document.querySelector('header');
             if(window.scrollY>10){
-                lockHeader();
+                myObj.lock(hEl);
             }else{
-                unLockHeader();
+                myObj.unLock(hEl);
             }
         })
 
+        // 마우스무브 이벤트
+        window.addEventListener('mousemove',function(viewPage){
+            let mouseX = viewPage.clientX;
+            let mouseY = viewPage.clientY;
+            let msCursor = document.getElementById('msCursor')
+            console.log('x = ' + mouseX);
+            console.log('y = ' + mouseY);
+            msCursor.style.left = mouseX + 'px';
+            msCursor.style.top = mouseY + 'px';
+        })
+        
 
 
         // FUNCTION
         function winWidth(){
             window.innerWidth;
         }
-
-        function showNav(){
-            mainNavEl.classList.add('active');
-        }
-
-        function closeNav(){
-            mainNavEl.classList.remove('active');
-        }
-
-        function lockWrap(){
-            wrapperEl.classList.add('lock');
-        }
-
-        function unLockWrap(){
-            wrapperEl.classList.remove('lock');
-        }
-
-        function lockHeader(){
-            headerEl.classList.add('lock');
-        }
-
-        function unLockHeader(){
-            headerEl.classList.remove('lock');
-        }
-
-        function setNav(){
-            for(let idx=0;idx<navEls.length;idx++){
-                navEls[idx].addEventListener('click',function(){
-                    unLockWrap();
-                    closeNav();
-                })
-            }
-            for(let idx=0;idx<navEls.length;idx++){
-                navEls[idx].removeEventListener('click',function(){   
-                })
-            }
-        }
-                
+       
 
         // 팝업 보이기/감추기 함수
         function popup(){
@@ -1306,8 +1298,6 @@
             return value? value[2] : null;
         }         
 
-      
-    
 
         // intro-left 애니메이션
         // let intLeftEl = document.querySelector('.intro-left');
@@ -1321,6 +1311,12 @@
         //         intLeftEl.style.opacity = '1';
         //     }
         // }
+
+
+        let tmp = document.querySelectorAll('.skills li');
+        for(let idx=0; idx<tmp.length; idx++){
+
+        }
     </script>
 </body>
 </html>
